@@ -4,10 +4,12 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/iglesiasgm/wiki-cocktail/db"
 	"github.com/iglesiasgm/wiki-cocktail/handlers"
 )
 
 func main() {
+	db.InitDB()
 	http.HandleFunc("/cocktails", handlers.GetCocktails)
 	http.HandleFunc("/cocktails/", handlers.GetCocktailByID)
 
@@ -15,7 +17,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
-/* 
+/*
 
 PROBAR ESCRIBIENDO ESTO EN EL BUSCADOR
 
