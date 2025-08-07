@@ -24,7 +24,6 @@ func GetCocktails(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-
 func GetCocktailByID(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Método no permitido", http.StatusMethodNotAllowed)
@@ -55,18 +54,18 @@ func GetCocktailByID(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "Cóctel no encontrado", http.StatusNotFound)
 }
 
-func CreateCocktail(w http.ResponseWriter, r *http.Request){
+func CreateCocktail(w http.ResponseWriter, r *http.Request) {
 	var newCocktail models.Cocktail
-err := json.NewDecoder(r.Body).Decode(&newCocktail)
-if err != nil {
-	http.Error(w, "JSON inválido", http.StatusBadRequest)
-	return
-}
+	err := json.NewDecoder(r.Body).Decode(&newCocktail)
+	if err != nil {
+		http.Error(w, "JSON inválido", http.StatusBadRequest)
+		return
+	}
 
-newCocktail.ID = len(data.Cocktails) + 1
-data.Cocktails = append(data.Cocktails, newCocktail)
+	newCocktail.ID = len(data.Cocktails) + 1
+	data.Cocktails = append(data.Cocktails, newCocktail)
 
-w.Header().Set("Content-Type", "application/json")
-w.WriteHeader(http.StatusCreated)
-json.NewEncoder(w).Encode(newCocktail)
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(newCocktail)
 }

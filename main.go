@@ -10,11 +10,10 @@ import (
 
 func main() {
 	db.InitDB()
-	http.HandleFunc("/cocktails", handlers.GetCocktails)
-	http.HandleFunc("/cocktails/", handlers.GetCocktailByID)
-
+	http.HandleFunc("/garnish", handlers.GetAllGarnishes)
 	log.Println("Servidor corriendo en http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
+
 }
 
 /*
