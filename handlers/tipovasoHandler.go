@@ -8,25 +8,25 @@ import (
 	"github.com/iglesiasgm/wiki-cocktail/models"
 )
 
-func GetAllGarnishes(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.DB.Query("SELECT idGarnish, descripGarnish FROM garnish")
+func GetAllTipoVaso(w http.ResponseWriter, r *http.Request) {
+	rows, err := db.DB.Query("SELECT idTipoVaso, nombreTipoVaso FROM tipoVaso")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 	defer rows.Close()
 
-	var garnishes []models.Garnish
+	var tipoVaso []models.TipoVaso
 	for rows.Next() {
-		var g models.Garnish
-		if err := rows.Scan(&g.ID, &g.Description); err != nil {
+		var g models.TipoVaso
+		if err := rows.Scan(&g.ID, &g.NOMBRE); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-		garnishes = append(garnishes, g)
+		tipoVaso = append(tipoVaso, g)
 	}
 
 	// Devolver JSON
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(garnishes)
+	json.NewEncoder(w).Encode(tipoVaso)
 }
