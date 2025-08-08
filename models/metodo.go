@@ -1,6 +1,6 @@
 package models
 
 type Metodo struct {
-	ID          int    `json:"idMetodo"`
-	Description string `json:"descripMetodo"`
+	ID          int    `json:"idmetodo"`
+	Description string `json:"descripmetodo"`
 }

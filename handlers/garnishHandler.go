@@ -9,7 +9,7 @@ import (
 )
 
 func GetAllGarnishes(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.DB.Query("SELECT idGarnish, descripGarnish FROM garnish")
+	rows, err := db.DB.Query("SELECT idgarnish, descripgarnish FROM garnish")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

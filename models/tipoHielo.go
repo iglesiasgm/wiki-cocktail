@@ -1,6 +1,6 @@
 package models
 
 type TipoHielo struct {
-	ID     int    `json:"idTipoHielo"`
-	NOMBRE string `json:"nombreTipoHielo"`
+	ID     int    `json:"idtipohielo"`
+	NOMBRE string `json:"nombretipohielo"`
 }

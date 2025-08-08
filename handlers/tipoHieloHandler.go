@@ -9,7 +9,7 @@ import (
 )
 
 func GetAllTipoHielo(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.DB.Query("SELECT idTipoHielo, nombreTipoHielo FROM tipoHielo")
+	rows, err := db.DB.Query("SELECT idtipohielo, nombretipohielo FROM tipohielo")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
