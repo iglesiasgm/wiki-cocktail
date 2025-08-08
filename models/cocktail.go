@@ -2,7 +2,12 @@ package models
 
 type Cocktail struct {
 	ID          int      `json:"id"`
-	Name        string   `json:"name"`
+	Nombre      string   `json:"nombrecoctel"`
+	Description string   `json:"descripcoctel"`
+	Vaso        string   `json:"idtipoVaso"`
+	Hielo       string   `json:"idtipoHielo"`
 	Ingredients []string `json:"ingredients"`
-	Garnish     string   `json:"garnish"`
+	Metodo      string   `json:"idmetodo"`
+	Garnish     []string `json:"garnish"`
+	Activo      bool     `json:"isactivecocktail"`
 }

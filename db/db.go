@@ -11,7 +11,7 @@ var DB *sql.DB
 
 func InitDB() {
 	//postgres://usuario:clave@host:puerto/dbname
-	connStr := "postgresql://kfgfktvb:zvebamjjpvdceundthvr@alpha.mkdb.sh:5432/ajemxuep"
+	connStr := "postgresql://xnuavglx:jrsikvzhhaxwtyghoplo@alpha.mkdb.sh:5432/peqluocj"
 
 	var err error
 	DB, err = sql.Open("pgx", connStr)

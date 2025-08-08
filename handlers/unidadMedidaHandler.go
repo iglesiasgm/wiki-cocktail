@@ -9,7 +9,7 @@ import (
 )
 
 func GetAllUnidadMedida(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.DB.Query("SELECT codUM, unidadMedida, cantidadIC FROM unidadMedida")
+	rows, err := db.DB.Query("SELECT codum, nomunidadmedida, cantidadic FROM unidadmedida")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

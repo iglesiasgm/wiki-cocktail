@@ -9,7 +9,7 @@ import (
 )
 
 func GetAllMetodo(w http.ResponseWriter, r *http.Request) {
-	rows, err := db.DB.Query("SELECT idMetodo, descripMetodo FROM metodo")
+	rows, err := db.DB.Query("SELECT idmetodo, descripmetodo FROM metodo")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
